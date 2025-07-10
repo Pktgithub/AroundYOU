@@ -1,0 +1,45 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Around You</title>
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+
+</head>
+<body>
+    <div class="places-container">
+  <h2 style="color: white;">Famous Places near You</h2>
+
+  {% if places %}
+    <div class="cards-grid">
+      {% for place in places %}
+        <div class="place-card">
+          <h4>{{ place.properties.name|default:"Unknown" }}</h4>
+          <p class="category">
+            {{ place.properties.categories|join:", " }}
+          </p>
+          <p class="address">
+            <!-- 
+             -->
+            <small>
+              <a href="https://www.google.com/maps/search/?api=1&query={{ place.properties.name|urlencode }}" 
+                 target="_blank" 
+                 style=" text-decoration: underline;">
+                 {{ place.properties.address.formatted|default:"View on map" }}
+              </a>
+           </small>
+
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No places found near your location.</p>
+  {% endif %}
+</div>
+
+</body>
+</html>
