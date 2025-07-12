@@ -2,6 +2,8 @@
 
 AroundYOU is a Django-based web application that helps users discover interesting places around their current location. With a simple and intuitive interface, users can view famous landmarks, attractions, and must-visit spots nearby using real-time geolocation and the OpenTripMap API.
 
+## LIVE LINK :https://aroundyou.pythonanywhere.com/
+
 ## 🚀 Features
 
 - 📍 Fetches user's current location with one click
